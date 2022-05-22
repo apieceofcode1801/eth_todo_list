@@ -17,6 +17,7 @@ App = {
         }
         if (window.ethereum) {
             await ethereum.request({ method: 'eth_requestAccounts' });
+
         } else if (window.web3) {} else {
             window.alert('No ethereum broswer detected! You can check out MetaMask!');
         }
@@ -88,7 +89,15 @@ App = {
                 taskList.append($newTaskTemplate)
             }
         }
-    }
+    },
+
+    async createTask() {
+        App.setLoading(true)
+        const content = $('#newTask').val()
+        await App.todoList.createTask(content, { from: App.account })
+        window.location.reload()
+        App.setLoading(false)
+    },
 
 }
 
