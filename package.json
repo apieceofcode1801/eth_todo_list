@@ -20,6 +20,11 @@
         "lite-server": "^2.3.0",
         "nodemon": "^2.0.16",
         "truffle": "^5.5.15",
-        "truffle-contract": "4.0.31"
+        "truffle-contract": "4.0.31",
+        "web3": "^1.7.3"
+    },
+    "dependencies": {
+        "leveldown": "^6.1.1",
+        "node-gyp-build": "^4.4.0"
     }
 }
