@@ -63,7 +63,8 @@ App = {
     },
 
     async renderTasks() {
-        // Load the total task count from the blockchain
+        console.log('render tasks')
+            // Load the total task count from the blockchain
         const taskCount = await App.todoList.taskCount();
         const $taskTemplete = $('.taskTemplate')
             // render out each task with template
@@ -99,6 +100,12 @@ App = {
         App.setLoading(false)
     },
 
+    async toggleCompleted(e) {
+        App.setLoading(true)
+        const taskId = e.target.name
+        await App.todoList.toggleCompleted(taskId, { from: App.account })
+        window.location.reload()
+    }
 }
 
 $(() => {
